@@ -52,3 +52,9 @@ steps:
     testResultsFiles: "**/TEST-*.xml"
     testRunTitle: 'Python $(PYTHON_VERSION)'
   condition: succeededOrFailed()
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
